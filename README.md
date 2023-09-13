@@ -1,5 +1,5 @@
-# chisel-empty
+# nn-chisel
 
-An almost empty chisel project as a starting point for hardware design.
+Explore neural networks in Scala and Chisel.
 
 See the `Makefile` for the hardware and test targets.
