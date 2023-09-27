@@ -7,7 +7,7 @@ class Perceptron {
   var input = new Array[Double](2)
   var bias = 1.0
   var lr = 1.0
-  var weights = new Array[Double](3)
+  var weights = Array.fill(3)(Random.nextDouble())
   var expect = 0.0
 
   def output = {
@@ -46,31 +46,32 @@ class Perceptron {
     weights(2) += err * bias
   }
 
+  def learn() = {
+    setAll(Array(0, 0), 0)
+    update
+    setAll(Array(0, 1), 1)
+    update
+    setAll(Array(1, 0), 1)
+    update
+    setAll(Array(1, 1), 1)
+    update
+  }
+
 }
 
 object Perceptron extends App{
 
   val p = new Perceptron()
-  p.setWeights(Array.fill(3)(Random.nextDouble()))
   println(p.toString())
   test
   println(p.toString())
   for (i <- 0 until 10) {
-    learn()
+    p.learn()
     test()
     println(p.toString())
   }
 
-  def learn() = {
-    p.setAll(Array(0, 0), 0)
-    p.update
-    p.setAll(Array(0, 1), 1)
-    p.update
-    p.setAll(Array(1, 0), 1)
-    p.update
-    p.setAll(Array(1, 1), 1)
-    p.update
-  }
+
 
   def test() = {
     p.setInput(Array(0, 0))

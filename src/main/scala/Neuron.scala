@@ -3,11 +3,10 @@ class Neuron(n: Int) {
 
   var inputs = new Array[Double](n)
   var weights = Array.fill(n + 1)(Random.nextDouble())
-  val bias = 1.0
   var output = 0.0
 
   def fire = {
-    val mac = inputs.zip(weights).map { case (a, b) => a * b } .reduce(_ + _) + bias * weights.last
+    val mac = inputs.zip(weights).map { case (a, b) => a * b } .reduce(_ + _) + weights.last
     // if (mac > 0) 1 else 0
     // sigmod
     output = 1 / (1 + Math.exp(-mac))
@@ -16,7 +15,6 @@ class Neuron(n: Int) {
 
   override def toString = {
     "Input: " + inputs.mkString(" ") + "\n" +
-      "Bias: " + bias + "\n" +
       "Weights: " + weights.mkString(" ") + "\n" +
       "Output: " + output
   }
