@@ -5,14 +5,13 @@ Explore neural networks in Scala and Chisel.
 ## Next Steps
 
  * [x] Add a test for the `Perceptron` class
- * [ ] Switch to Float
  * [ ] Do a MultilayerPerceptron (also called ELM (Extreme Learning Machine)) as a second step
    * Random middle layer weights and then learn the output weights
    * Solve the XOR problem
  * [ ] Do a simple feed forward NN
  * [ ] Implement learning
  * [ ] Explore it with an XOR function
- * [ ] Explore it with a MNIST dataset
+ * [ ] Explore it with the MNIST dataset
 
 ## Resources
 

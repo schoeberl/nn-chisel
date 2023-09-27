@@ -1,7 +1,7 @@
 import org.scalatest.flatspec.AnyFlatSpec
 
-class PerceptionTest extends AnyFlatSpec {
-  "Perception" should "pass" in {
+class PerceptronTest extends AnyFlatSpec {
+  "Perceptron" should "pass" in {
     val p = new Perceptron()
     for (i <- 0 until 10) {
       p.learn()
