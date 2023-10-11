@@ -1,7 +1,7 @@
 object MultilayerPerceptron extends App {
 
-  val output = new Neuron(4)
-  val hidden = Array.fill(4)(new Neuron(2))
+  val output = new Neuron(10)
+  val hidden = Array.fill(10)(new Neuron(2))
 
   def compute(in: Array[Double]) = {
     hidden.foreach { h =>
@@ -35,10 +35,10 @@ object MultilayerPerceptron extends App {
     println("1,1 -> " + (output.output + 0.5).toInt + "      "+ output.output)
   }
 
-  // XOR does not work
-  val input = Array[(Array[Double], Double)]((Array(0, 0), 0), (Array(0, 1), 1), (Array(1, 0), 1), (Array(1, 1), 1))
+  // XOR does work (with 10 hidden neurons and 10000 iterations, but sometimes still fails)
+  val input = Array[(Array[Double], Double)]((Array(0, 0), 0), (Array(0, 1), 1), (Array(1, 0), 1), (Array(1, 1), 0))
 
-    for (i <- 0 until 1000) {
+    for (i <- 0 until 10000) {
       input.foreach { case (in, exp) => learn(in, exp) }
       test()
       println(output.weights.mkString(" "))
